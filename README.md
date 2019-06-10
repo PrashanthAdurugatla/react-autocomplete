@@ -1,12 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Prerequisites
-1. An adequate version of Node.js should be installed.
-2. An adequate version of npm should be installed
-
 
 ## Features in the App
-•	This is a single page app and bootstrapped using with Create React App
+•	This is a single page app and bootstrapped using with [Create React App](https://github.com/facebook/create-react-app).
 
 •	Autocomplete plugins are not used in the app
 
@@ -31,6 +25,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 •	<b>findLink</b> is an onclick function which is placed on search icon in search bar. This function takes the user to suggested product page when user clicks on search icon
 
 •	In the end verified the functionality of application as required
+
+
+## Prerequisites
+1. An adequate version of Node.js should be installed.
+2. An adequate version of npm should be installed
 
 
 ## Instructions for how to run, test and build 
@@ -64,4 +63,8 @@ Then app is ready to be deployed!
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 
+## Image Credits 
 
+[Personal Capital Logo](https://www.personalcapital.com/logos/Personal-Capital-Logo.png).
+
+[Search Icon](https://cdn1.iconfinder.com/data/icons/toolbar-signs/512/search-512.png).
