@@ -16,7 +16,10 @@
 .company_logo{
     width: 600px;
     height: 100px;
-    margin-bottom: 25px;
+    margin-bottom: 35px;
+    margin-top: 50px;
+    background-color: #D2F0FD;
+
 }
 
 .search_bar{
@@ -73,5 +76,6 @@
 
 .autocomplete_suggestions_item:hover{
     background: #ccc;
+
 }
 
