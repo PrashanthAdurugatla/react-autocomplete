@@ -6,11 +6,9 @@ class Home extends Component {
     constructor(props){
         super(props);
         this.state = {
-            words: [],
-            uniqueWords:[],
-            length:0,
+            products: [],
+            uniqueproducts: [],
             userInput: '',
-            userInputUrl:'',
             autocompleteSuggestions: [],
             autocompleteRowHighlighted: -1,
         }
@@ -20,65 +18,62 @@ class Home extends Component {
         axios
             .get('./products.json')
             .then(res => {
-                this.setState({words: res.data.products});
-                this.setState({length:res.data.products.length});
+                this.setState({products: res.data.products});
                 this.removeDuplicates(res.data.products)
             })
-            .catch(err=>{
+            .catch(err => {
                 alert("Error in Fetching Data")
             })
     }
 
     removeDuplicates(products){
-        // console.log(products);
         const uniqueValues = Array.from(new Set(products.map(a => a.name)))
             .map(name => {
                 return products.find(a => a.name === name)
             })
-        this.setState({uniqueWords:uniqueValues});
+        this.setState({uniqueproducts:uniqueValues});
         // console.log(this.state.uniqueWords);
     }
 
     handleUserInput(e){
-        var input = e.target.value;
-        var matches=[];
+        let userInput = e.target.value;
+        let autocompleteSuggestions = [];
 
-        const {uniqueWords } = this.state;
+        const {uniqueproducts } = this.state;
         // console.log(input); console.log(input.length);
-        if (input.length > 0){
-            for (var i = 0; i < uniqueWords.length; i++){
-                if (uniqueWords[i].name.toLowerCase().includes(input.toLowerCase())){
-                    matches.push(uniqueWords[i].name);
+        if (userInput.length > 0){
+            for (let i = 0; i < uniqueproducts.length; i++){
+                if (uniqueproducts[i].name.toLowerCase().includes(userInput.toLowerCase())){
+                    autocompleteSuggestions.push(uniqueproducts[i].name);
+                    if (autocompleteSuggestions.length >= 10){
+                        i = uniqueproducts.length + 1;
+                    }
                 }
             }
         }
-        this.setState({
-            userInput: input,
-            autocompleteSuggestions: matches,
-
-        })
+        this.setState({ userInput, autocompleteSuggestions})
     }
 
     handleKeyPress(e){
+        const{autocompleteRowHighlighted, autocompleteSuggestions}=this.state
         if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'Enter'){
             e.preventDefault();
         }else{
             return;
         }
 
-        let rowHighlighted = this.state.autocompleteRowHighlighted;
+        let rowHighlighted = autocompleteRowHighlighted;
 
-        if (e.key === 'ArrowDown' && rowHighlighted < this.state.autocompleteSuggestions.length - 1){
+        if (e.key === 'ArrowDown' && rowHighlighted < autocompleteSuggestions.length - 1){
             rowHighlighted ++;
         }
         if (e.key === 'ArrowUp' && rowHighlighted > -1){
             rowHighlighted --;
         }
         if (e.key === 'Enter' && rowHighlighted >= 0){
-            let selection = this.state.autocompleteSuggestions[rowHighlighted];
+            let selection = autocompleteSuggestions[rowHighlighted];
             return this.selectAutocomplete(selection);
         }
-
         this.setState({
             autocompleteRowHighlighted: rowHighlighted
         })
@@ -96,52 +91,50 @@ class Home extends Component {
             autocompleteSuggestions: [],
             autocompleteRowHighlighted: -1
         })
-        this.findInputIndex(item);
     }
 
-    findInputIndex(item){
-        const {uniqueWords } = this.state;
-        var url;
-        for (var i = 0; i < uniqueWords.length; i++){
-            if (uniqueWords[i].name.toLowerCase().includes(item.toLowerCase())){
-                url=uniqueWords[i].url;
+    findLink(e) {
+        const {userInput,uniqueproducts} = this.state;
+        for (let i = 0; i < uniqueproducts.length; i++){
+            if (uniqueproducts[i].name.toLowerCase().includes(userInput.toLowerCase())){
+                console.log(userInput);
+                if(userInput===uniqueproducts[i].name){
+                    window.open(uniqueproducts[i].url,'_blank')
+                    //console.log(uniqueproducts[i].url);
+                }
             }
         }
-        // console.log(url);
-        this.setState({
-            userInputUrl: url,
-        })
     }
 
     render() {
+        const{userInput, autocompleteRowHighlighted,autocompleteSuggestions}=this.state;
         return (
             <div className="home">
-              <div className='search_box'>
+                <div className='search_box'>
 
-                <img src='https://cdn.vox-cdn.com/uploads/chorus_asset/file/6466217/fixed-google-logo-font.png' alt='google logo' className='google_logo' />
+                    <img src='https://www.personalcapital.com/logos/Personal-Capital-Logo.png'  alt='company logo' className='company_logo' />
 
-                <div className='search_bar'>
-                  <input value={this.state.userInput} onChange={ (e) => this.handleUserInput(e) } onKeyDown={ (e) => this.handleKeyPress(e) } />
-                  <img src='https://upload.wikimedia.org/wikipedia/commons/4/4f/Search-button.png' alt='search logo' onClick= {this.state.userInputUrl}/>
-
-                      <div className='autocomplete_suggestions'>
-                      {
-                          this.state.autocompleteSuggestions.map( (item, i) => {
-                              var background = (i === this.state.autocompleteRowHighlighted) ? '#ccc' : '#fff';
-                              return (
-                                  <div
-                                      key={i}
-                                      onClick={() => this.selectAutocomplete(item)}
-                                      onMouseOver={ () => this.setRowHighlighted(i) }
-                                      style={{background: background}}
-                                      className='autocomplete_suggestions_item'>
-                                    <p>{item}</p>
-                                  </div>
-                              )
-                          })
-                      }
-                      </div>
-                  </div>
+                    <div className='search_bar'>
+                        <input value={userInput} placeholder={"Search for Financial Institution"} onChange={ (e) => this.handleUserInput(e) } onKeyDown={ (e) => this.handleKeyPress(e)  } />
+                        <img src='https://cdn1.iconfinder.com/data/icons/toolbar-signs/512/search-512.png' alt='search logo'  onClick= {(e) => this.findLink(e)} />
+                        <div className='autocomplete_suggestions'>
+                            {
+                                autocompleteSuggestions.map( (item, i) => {
+                                    let background = (i === autocompleteRowHighlighted) ? '#ccc' : '#fff';
+                                    return (
+                                        <div
+                                            key={i}
+                                            onClick={() => this.selectAutocomplete(item)}
+                                            onMouseOver={ () => this.setRowHighlighted(i) }
+                                            style={{background: background} }
+                                            className='autocomplete_suggestions_item'>
+                                            <p>{item}</p>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    </div>
                 </div>
             </div>
 
