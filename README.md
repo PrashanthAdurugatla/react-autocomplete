@@ -5,6 +5,34 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 2. An adequate version of npm should be installed
 
 
+## Features in the App
+•	This is a single page app and bootstrapped using with Create React App
+
+•	Autocomplete plugins are not used in the app
+
+•	This app avoids scrollbars and displays only max of 10 autocomplete suggestions
+
+•	In order to reduce Visual noise, I added healthy amount of padding between the autocomplete suggestions
+
+•	It has another feature which supports keyboard Navigation
+
+•	Autocomplete suggestions is highlighted and invokes the Hand cursor when you hovered on the list
+
+•	You will be directed to products page when you click search icon after selecting any one of suggestions
+
+
+## Work Progress Report
+•	Initially I found duplicate data in Json file. So, in order to eliminate the duplicates, I have implemented a function called <font color="green">removeDuplicates </font>which takes json file as input and generates an Array of objects named it as uniqueproducts
+
+•	Implemented a function called <font color="green">handleUserInput</font> which takes the input from keyboard and initializes the autocompleteSuggestions array with collection of products that matches with user input
+
+•	In order to support <b>keyboard Navigation</b>, I implemented a function called <font color="green">handleKeyPress</font> which gets triggered when keyboard is used
+
+•	<font color="green">findLink</font> is an onclick function which is placed on search icon in search bar. This function takes the user to suggested product page when user clicks on search icon
+
+•	In the end verified the functionality of application as required
+
+
 ## Instructions for how to run, test and build 
 
 In the project directory, you can run:
@@ -35,33 +63,5 @@ Then app is ready to be deployed!
 
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-
-
-## Features in the App
-•	This is a single page app and bootstrapped using with Create React App
-
-•	Autocomplete plugins are not used in the app
-
-•	This app avoids scrollbars and displays only max of 10 autocomplete suggestions
-
-•	In order to reduce Visual noise, I added healthy amount of padding between the autocomplete suggestions
-
-•	It has another feature which supports keyboard Navigation
-
-•	Autocomplete suggestions is highlighted and invokes the Hand cursor when you hovered on the list
-
-•	You will be directed to products page when you click search icon after selecting any one of suggestions
-
-
-## Work Progress Report
-•	Initially I found duplicate data in Json file. So, in order to eliminate the duplicates, I have implemented a function called <font color="green">removeDuplicates </font>which takes json file as input and generates an Array of objects named it as uniqueproducts
-
-•	Implemented a function called <font color="green">handleUserInput</font> which takes the input from keyboard and initializes the autocompleteSuggestions array with collection of products that matches with user input
-
-•	In order to support <b>keyboard Navigation</b>, I implemented a function called <font color="green">handleKeyPress</font> which gets triggered when keyboard is used
-
-•	<font color="green">findLink</font> is an onclick function which is placed on search icon in search bar. This function takes the user to suggested product page when user clicks on search icon
-
-•	In the end verified the functionality of application as required
 
 
