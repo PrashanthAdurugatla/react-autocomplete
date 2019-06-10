@@ -22,13 +22,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 
 ## Work Progress Report
-•	Initially I found duplicate data in Json file. So, in order to eliminate the duplicates, I have implemented a function called <font color="green">removeDuplicates </font>which takes json file as input and generates an Array of objects named it as uniqueproducts
+•	Initially I found duplicate data in Json file. So, in order to eliminate the duplicates, I have implemented a function called <b>removeDuplicates </b>which takes json file as input and generates an Array of objects named it as uniqueproducts
 
-•	Implemented a function called <font color="green">handleUserInput</font> which takes the input from keyboard and initializes the autocompleteSuggestions array with collection of products that matches with user input
+•	Implemented a function called <b>handleUserInput</b> which takes the input from keyboard and initializes the autocompleteSuggestions array with collection of products that matches with user input
 
-•	In order to support <b>keyboard Navigation</b>, I implemented a function called <font color="green">handleKeyPress</font> which gets triggered when keyboard is used
+•	In order to support <b>keyboard Navigation</b>, I implemented a function called <b>handleKeyPress</font> which gets triggered when keyboard is used
 
-•	<font color="green">findLink</font> is an onclick function which is placed on search icon in search bar. This function takes the user to suggested product page when user clicks on search icon
+•	<b>findLink</b> is an onclick function which is placed on search icon in search bar. This function takes the user to suggested product page when user clicks on search icon
 
 •	In the end verified the functionality of application as required
 
