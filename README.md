@@ -26,7 +26,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 •	Implemented a function called <b>handleUserInput</b> which takes the input from keyboard and initializes the autocompleteSuggestions array with collection of products that matches with user input
 
-•	In order to support <b>keyboard Navigation</b>, I implemented a function called <b>handleKeyPress</font> which gets triggered when keyboard is used
+•	In order to support <b>keyboard Navigation</b>, I implemented a function called <b>handleKeyPress</b> which gets triggered when keyboard is used
 
 •	<b>findLink</b> is an onclick function which is placed on search icon in search bar. This function takes the user to suggested product page when user clicks on search icon
 
