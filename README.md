@@ -1,5 +1,5 @@
 
-## Features in the App ([Live](https://autocomplete-pc.herokuapp.com/).
+## Features in the App ([Live](https://autocomplete-pc.herokuapp.com/)).
 •	This is a single page app and bootstrapped using with [Create React App](https://github.com/facebook/create-react-app).
 
 •	Autocomplete plugins are not used in the app
