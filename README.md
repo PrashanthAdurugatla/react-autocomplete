@@ -16,7 +16,7 @@
 
 
 ## Work Progress Report
-•	Initially I found duplicate data in Json file. So, in order to eliminate the duplicates, I have implemented a function called <b>removeDuplicates </b>which takes json file as input and generates an Array of objects named it as uniqueproducts
+•	Initially I found duplicate data in Json file. So, in order to eliminate the duplicates, I have implemented a function called <b>removeDuplicates </b>which takes json file data as input and generates an Array of objects named it as uniqueproducts
 
 •	Implemented a function called <b>handleUserInput</b> which takes the input from keyboard and initializes the autocompleteSuggestions array with collection of products that matches with user input
 
