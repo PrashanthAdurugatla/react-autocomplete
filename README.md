@@ -68,3 +68,14 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 [Personal Capital Logo](https://www.personalcapital.com/logos/Personal-Capital-Logo.png).
 
 [Search Icon](https://cdn1.iconfinder.com/data/icons/toolbar-signs/512/search-512.png).
+
+
+## Screenshot of HomePage
+
+![Capture](https://user-images.githubusercontent.com/33069358/59305232-b0058400-8c4e-11e9-8cfd-7cfad597f960.JPG)
+
+
+## Next Implementations
+
+Can use a npm package called [Autosuggest Highlight](https://www.npmjs.com/package/autosuggest-highlight) which highlights the text in the sugessions
+
