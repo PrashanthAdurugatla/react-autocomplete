@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import './Home.css';
-
 class Home extends Component {
     constructor(props){
         super(props);
@@ -109,10 +108,9 @@ class Home extends Component {
     render() {
         const{userInput, autocompleteRowHighlighted,autocompleteSuggestions}=this.state;
         return (
-            <div className="home">
-                <div className='search_box'>
-
-                    <img src='https://www.personalcapital.com/logos/Personal-Capital-Logo.png'  alt='company logo' className='company_logo' />
+            <div className='home'>
+                <header className='header'>Personal Capital: Financial Software and Wealth Management </header>
+                <div className='box center'>
 
                     <div className='search_bar'>
                         <input value={userInput} placeholder={"Search for Financial Institution"} onChange={ (e) => this.handleUserInput(e) } onKeyDown={ (e) => this.handleKeyPress(e)  } />
@@ -137,7 +135,6 @@ class Home extends Component {
                     </div>
                 </div>
             </div>
-
         );
     }
 }
