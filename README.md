@@ -10,6 +10,8 @@
 
 •	It has another feature which supports keyboard Navigation
 
+•	Highlight's the Differences in the suggestions. So, the user can easily tell what’s suggested. 
+
 •	Autocomplete suggestions is highlighted and invokes the Hand cursor when you hovered on the list
 
 •	You will be directed to products page when you click search icon after selecting any one of suggestions
@@ -65,17 +67,7 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 
 ## Image Credits 
 
-[Personal Capital Logo](https://www.personalcapital.com/logos/Personal-Capital-Logo.png).
-
 [Search Icon](https://cdn1.iconfinder.com/data/icons/toolbar-signs/512/search-512.png).
 
 
-## Screenshot of HomePage
-
-![Capture](https://user-images.githubusercontent.com/33069358/59305232-b0058400-8c4e-11e9-8cfd-7cfad597f960.JPG)
-
-
-## Next Implementations
-
-Can use a npm package called [Autosuggest Highlight](https://www.npmjs.com/package/autosuggest-highlight) which highlights the text in the sugessions
 
