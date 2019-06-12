@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import './Home.css';
+import match from 'autosuggest-highlight/match';
+import parse from 'autosuggest-highlight/parse';
+import ReactHtmlParser from 'react-html-parser';
+
 class Home extends Component {
     constructor(props){
         super(props);
@@ -42,7 +46,7 @@ class Home extends Component {
         // console.log(input); console.log(input.length);
         if (userInput.length > 0){
             for (let i = 0; i < uniqueproducts.length; i++){
-                if (uniqueproducts[i].name.toLowerCase().includes(userInput.toLowerCase())){
+                if (uniqueproducts[i].name.toLowerCase().startsWith(userInput.toLowerCase())){
                     autocompleteSuggestions.push(uniqueproducts[i].name);
                     if (autocompleteSuggestions.length >= 10){
                         i = uniqueproducts.length + 1;
@@ -100,13 +104,17 @@ class Home extends Component {
                 if(userInput===uniqueproducts[i].name){
                     window.open(uniqueproducts[i].url,'_blank')
                     //console.log(uniqueproducts[i].url);
-                }
+                }else{return alert("NO RESULTS FOUND")}
             }
         }
     }
 
+
+
+
     render() {
         const{userInput, autocompleteRowHighlighted,autocompleteSuggestions}=this.state;
+
         return (
             <div className='home'>
                 <div className='header'>Personal Capital: Financial Software and Wealth Management </div>
@@ -118,6 +126,13 @@ class Home extends Component {
                         <div className='autocomplete_suggestions'>
                             {
                                 autocompleteSuggestions.map( (item, i) => {
+                                    let matches = match(item, userInput);
+                                    let parts = parse(item, matches)
+                                    let result = parts.map(part =>
+                                        part.highlight ?  part.text:`<b>${part.text}</b>` )
+                                    result=result.join('');
+                                    // console.log(result);
+
                                     let background = (i === autocompleteRowHighlighted) ? '#ccc' : '#fff';
                                     return (
                                         <div
@@ -126,7 +141,7 @@ class Home extends Component {
                                             onMouseOver={ () => this.setRowHighlighted(i) }
                                             style={{background: background} }
                                             className='autocomplete_suggestions_item'>
-                                            <p>{item}</p>
+                                            <p>{ReactHtmlParser(result)}</p>
                                         </div>
                                     )
                                 })
