@@ -109,7 +109,7 @@ class Home extends Component {
         const{userInput, autocompleteRowHighlighted,autocompleteSuggestions}=this.state;
         return (
             <div className='home'>
-                <header className='header'>Personal Capital: Financial Software and Wealth Management </header>
+                <div className='header'>Personal Capital: Financial Software and Wealth Management </div>
                 <div className='box center'>
 
                     <div className='search_bar'>
